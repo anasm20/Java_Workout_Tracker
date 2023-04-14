@@ -1,5 +1,5 @@
 --- Person 1 ---
-Name: Muller Maria (35)
+Name: Muller Anna (35)
 Number of running exercises: 2
 Number of swimming exercises: 2
 Average duration: 25.0min 
@@ -9,12 +9,12 @@ Number of running exercises: 2
 Number of swimming exercises: 2
 Average duration: 25.0min 
 --- Person 3 ---
-Name: Dither Stephanie (42)
+Name: Ahmad Ali (42)
 Number of running exercises: 2
 Number of swimming exercises: 2
 Average duration: 25.0min 
 --- Person 4 ---
-Name: Peugeot Alain (21)
+Name: Leo Jan (21)
 Number of running exercises: 2
 Number of swimming exercises: 2
 Average duration: 25.0min 
