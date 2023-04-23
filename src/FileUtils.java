@@ -6,18 +6,18 @@ import java.util.List;
 public class FileUtils {
 
     /**
-     * path of file of person to be import
+     * Pfad zur CSV-Datei mit den Personen-Daten.
      */
     private final static String PATH_TO_PERSON_IMPORT = "resources/persons.csv";
     /**
-     * path of file of statistic to be saved
+     * Pfad zur Textdatei, in der die Statistik gespeichert wird.
      */
     private final static String PATH_TO_STATISTIC = "resources/statistic.txt";
 
     /**
-     * Read list of Persons per line from CSV
+     * Liest eine Liste von Personen aus der CSV-Datei und gibt sie zurück.
      * 
-     * @return person list from the csv file
+     * @return Liste von Personen aus der CSV-Datei
      */
 
     public static List<Person> readPersonsFromCsv() {
@@ -27,7 +27,7 @@ public class FileUtils {
             BufferedReader br = new BufferedReader(new FileReader(PATH_TO_PERSON_IMPORT));
             while ((line = br.readLine()) != null) {
                 String[] split = line.split(";");
-                if (split.length == 4) { // need 4 params to create person
+                if (split.length == 4) { // es werden 4 Parameter benötigt, um eine Person zu erstellen
                     try {
                         Person person = new Person(Long.parseLong(split[0]), split[1], split[2],
                                 Integer.parseInt(split[3]));
@@ -49,17 +49,18 @@ public class FileUtils {
     }
 
     /**
-     * Write statistic of the Workout-Tracker to file
+     * Schreibt die Statistik des Workout-Trackers in die Datei.
      * 
-     * @param persons  list of person to track
-     * @param workouts list of workout
+     * @param persons  Liste der Personen, deren Workouts getrackt werden sollen
+     * @param workouts Liste der Workouts
      */
+
     public static void writeStatisticToFile(List<Person> persons, List<Workout> workouts) {
         if (persons != null && workouts != null) {
             BufferedWriter bw = null;
             try {
                 bw = new BufferedWriter(new FileWriter(PATH_TO_STATISTIC, false));
-                // start write person to the file
+                // schreibe Personen in die Datei
                 for (int i = 0; i < persons.size(); i++) {
                     Person person = persons.get(i);
                     try {
@@ -77,13 +78,13 @@ public class FileUtils {
                         System.out.printf("Error! Skip to write the Person with id=%s", person.getId());
                     }
                 }
-                // start write statistic to the file
+                // schreibet Statistik in die Datei
                 String sb = "--- Biking  ---\n" +
                         "Average distance: " + getAverageDistanceByWorkout(workouts, BikingWorkout.class) + "m\n" +
                         "Average duration: " + getAverageDurationByWorkout(workouts, BikingWorkout.class) + "mim\n" +
                         "# mountain: " + getNumberOfBikingWorkoutByType(workouts, BikingType.MOUNTAIN) + "\n" +
                         "# road: " + getNumberOfBikingWorkoutByType(workouts, BikingType.ROAD) + "\n";
-                // write statistic of Biking
+                // schreibet Statistik für Biking
                 bw.write(sb);
 
                 sb = "--- Swimming  ---\n" +
@@ -91,7 +92,7 @@ public class FileUtils {
                         "Average duration: " + getAverageDurationByWorkout(workouts, SwimmingWorkout.class) + "mim\n" +
                         "# backstroke: " + getNumberOfSwimmingWorkoutByType(workouts, SwimmingType.BACKSTROKE) + "\n" +
                         "# butterfly: " + getNumberOfSwimmingWorkoutByType(workouts, SwimmingType.BUTTERFLY) + "\n";
-                // write statistic of Swimming
+                // schreibet Statistik für Swimming
                 bw.write(sb);
                 bw.close();
             } catch (IOException e) {
@@ -101,11 +102,11 @@ public class FileUtils {
     }
 
     /**
-     * Get average distance by workout
-     * 
-     * @param workouts list of workout
-     * @param workout  workout class use to filter
-     * @return Average distance
+     * Durchschnittliche Distanz des Workouts abrufen
+     *
+     * @param workouts Liste der Workouts
+     * @param workout  Workout-Klasse zur Filterung
+     * @return Durchschnittliche Distanz
      */
     private static double getAverageDistanceByWorkout(List<Workout> workouts, Class<?> workout) {
         if (workouts != null && !workouts.isEmpty() && workout != null) {
@@ -115,11 +116,11 @@ public class FileUtils {
     }
 
     /**
-     * Get average duration by workout
-     * 
-     * @param workouts list of workout
-     * @param workout  workout class use to filter
-     * @return Average duration
+     * Durchschnittliche Dauer des Workouts abrufen
+     *
+     * @param workouts Liste der Workouts
+     * @param workout  Workout-Klasse zur Filterung
+     * @return Durchschnittliche Dauer
      */
     private static double getAverageDurationByWorkout(List<Workout> workouts, Class<?> workout) {
         if (workouts != null && !workouts.isEmpty() && workout != null) {
@@ -129,11 +130,11 @@ public class FileUtils {
     }
 
     /**
-     * Get number of biking workout by type
-     * 
-     * @param workouts list of workout
-     * @param type     type of BikingWorkout
-     * @return number of Biking
+     * Anzahl der Radfahr-Workouts nach Typ abrufen
+     *
+     * @param workouts Liste der Workouts
+     * @param type     Typ des Radfahr-Workouts
+     * @return Anzahl der Radfahr-Workouts
      */
     private static int getNumberOfBikingWorkoutByType(List<Workout> workouts, BikingType type) {
         if (workouts != null && !workouts.isEmpty() && type != null) {
@@ -147,11 +148,11 @@ public class FileUtils {
     }
 
     /**
-     * Get number of swimming workout by type
+     * Anzahl der Schwimm-Workouts nach Typ abrufen
      * 
-     * @param workouts list of workout
-     * @param type     type of SwimmingWorkout
-     * @return number of Biking
+     * @param workouts Liste der Workouts
+     * @param type     Typ des Schwimm-Workouts
+     * @return Anzahl der Schwimm-Workouts
      */
     private static int getNumberOfSwimmingWorkoutByType(List<Workout> workouts, SwimmingType type) {
         if (workouts != null && !workouts.isEmpty() && type != null) {
@@ -165,11 +166,11 @@ public class FileUtils {
     }
 
     /**
-     * Get average duration of workout by person
-     * 
-     * @param personId    id of the person
-     * @param workoutList list of workout
-     * @return average duration of workout by person
+     * Durchschnittliche Dauer des Workouts pro Person abrufen
+     *
+     * @param personId    ID der Person
+     * @param workoutList Liste der Workouts
+     * @return Durchschnittliche Dauer des Workouts pro Person
      */
     private static double getAverageDurationOfWorkoutByPerson(Long personId, List<Workout> workoutList) {
         if (personId != null && workoutList != null && !workoutList.isEmpty()) {
@@ -181,11 +182,11 @@ public class FileUtils {
     }
 
     /**
-     * Get number of biking workout by person
-     * 
-     * @param personId    id of the person
-     * @param workoutList list of workout
-     * @return number of biking workout by person
+     * Anzahl der Radfahr-Workouts pro Person
+     *
+     * @param personId    ID der Person
+     * @param workoutList Liste der Workouts
+     * @return Anzahl der Radfahr-Workouts pro Person
      */
     private static int getNumberOfBikingWorkoutByPerson(Long personId, List<Workout> workoutList) {
         if (personId != null && workoutList != null && !workoutList.isEmpty()) {
@@ -198,11 +199,11 @@ public class FileUtils {
     }
 
     /**
-     * Get number of swimming workout by person
+     * Anzahl der Schwimm-Workouts pro Person
      * 
-     * @param personId    id of the person
-     * @param workoutList list of workout
-     * @return number of swimming workout by person
+     * @param personId    ID der Person
+     * @param workoutList Liste der Workouts
+     * @return Anzahl der Schwimm-Workouts pro Person
      */
     private static int getNumberOfSwimmingWorkoutByPerson(Long personId, List<Workout> workoutList) {
         if (personId != null && workoutList != null && !workoutList.isEmpty()) {
@@ -215,10 +216,10 @@ public class FileUtils {
     }
 
     /**
-     * Get average distance
-     * 
-     * @param workouts
-     * @return average distance of workout
+     * Durchschnittliche Distanz des Workouts abrufen
+     *
+     * @param workouts Liste der Workouts
+     * @return Durchschnittliche Distanz des Workouts
      */
     private static double getAverageDistance(List<? extends Workout> workouts) {
         if (workouts != null && !workouts.isEmpty()) {
@@ -231,10 +232,10 @@ public class FileUtils {
     }
 
     /**
-     * Get average duration
-     * 
-     * @param workouts
-     * @return average duration of workout
+     * Durchschnittliche Dauer des Workouts abrufen
+     *
+     * @param workouts Liste der Workouts
+     * @return Durchschnittliche Dauer des Workouts
      */
     private static double getAverageDuration(List<? extends Workout> workouts) {
         if (workouts != null && !workouts.isEmpty()) {
