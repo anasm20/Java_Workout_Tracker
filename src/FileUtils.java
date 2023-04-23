@@ -1,3 +1,11 @@
+
+/**
+ * Die Klasse "FileUtils" enthält Methoden, um eine Liste von Personen aus einer 
+ * CSV-Datei zu lesen und die Statistik des Workout-Trackers in eine Textdatei zu schreiben. 
+ * Es enthält auch verschiedene private Hilfsmethoden, um Durchschnittswerte und Anzahlen 
+ * von Workouts zu berechnen.
+ */
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

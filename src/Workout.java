@@ -1,14 +1,11 @@
 /**
- * Anas Mohammad>>
- * Represent an abstract Workout
- * 
+ * ##################### Abstrakte Workout Klasse #########################
+ * Dies ist eine abstrakte Java-Klasse namens "Workout".
+ * Die Klasse enthält vier private Instanzvariablen: "id" (vom Typ "Long"),
+ * "duration" und "distance" (beide vom Typ "int") und "personId" (vom Typ
+ * "Long").
  */
 
-// ##################### Abstrakte Klasse #########################
-// Dies ist eine abstrakte Java-Klasse namens "Workout".
-// Die Klasse enthält vier private Instanzvariablen: "id" (vom Typ "Long"),
-// "duration" und
-// "distance" (beide vom Typ "int") und "personId" (vom Typ "Long").
 public abstract class Workout {
 
     private Long id;
