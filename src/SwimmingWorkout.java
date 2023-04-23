@@ -1,6 +1,11 @@
 /**
- * Represent an SwimmingWorkout
+ * ##################### Swimming Workout Klasse #########################
+ * Diese Klasse erweitert die abstrakte Klasse "Workout"
+ * und definiert eine spezifische Art von Workout namens "SwimmingWorkout",
+ * die eine Schwimmaktivität mit einer bestimmten Art von Schwimmen ("type")
+ * enthält.
  */
+
 public class SwimmingWorkout extends Workout {
 
     private SwimmingType type;
