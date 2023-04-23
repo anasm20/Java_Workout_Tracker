@@ -2,8 +2,9 @@
  * Repräsentiere ein SwimmingWorkout
  * Die Klasse "BikingWorkout" erweitert die Klasse "Workout" und
  * enthält zusätzlich ein Attribut "type" vom Typ "BikingType",
- * welches den Typ des Fahrradtrainings speichert.
+ * welches den Typ des BikingWorkout speichert.
  */
+
 public class BikingWorkout extends Workout {
 
     private BikingType type;

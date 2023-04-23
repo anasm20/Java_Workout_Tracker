@@ -1,6 +1,11 @@
 /**
- * Represent a Person
+ * Die Klasse "Person" repräsentiert eine Person und hat einen Konstruktor,
+ * der die Eigenschaften (Variablen) der Person initialisiert.
+ * Zusätzlich hat die Klasse acht sogenannte "Getter" und "Setter"-Methoden,
+ * die den Zugriff auf die Eigenschaften der Person ermöglichen und sie ändern
+ * können.
  */
+
 public class Person {
 
     private Long id;
@@ -9,12 +14,14 @@ public class Person {
     private String lastName;
     private int age;
 
-    // ##################### Konstruktor #########################
-    // Dies ist ein Konstruktor für die Java-Klasse "Person".
-    // Ein Konstruktor ist eine spezielle Methode, die automatisch aufgerufen wird,
-    // wenn ein Objekt einer Klasse erstellt wird.
-    // Der Konstruktor initialisiert die Eigenschaften (Variablen) des Objekts mit
-    // den angegebenen Werten.
+    /**
+     * ##################### Konstruktor #########################
+     * Dies ist ein Konstruktor für die Java-Klasse "Person".
+     * Ein Konstruktor ist eine spezielle Methode, die automatisch aufgerufen wird,
+     * wenn ein Objekt einer Klasse erstellt wird.
+     * Der Konstruktor initialisiert die Eigenschaften (Variablen) des Objekts mit
+     * den angegebenen Werten.
+     */
     public Person(Long id, String firstName, String lastName, int age) {
         this.id = id;
         this.firstName = firstName;
@@ -22,11 +29,13 @@ public class Person {
         this.age = age;
     }
 
-    // ##################### Getter & Setter #########################
-    // Dieser Java-Code definiert acht Methoden, vier sogenannte "Getter" und vier
-    // sogenannte "Setter", für die Java-Klasse "Person".
-    // Diese Methoden ermöglichen es, auf die Eigenschaften (Variablen) eines
-    // Objekts der Klasse "Person" zuzugreifen und sie zu ändern.
+    /**
+     * ##################### Getter & Setter #########################
+     * Dieser Java-Code definiert acht Methoden, vier sogenannte "Getter" und vier
+     * sogenannte "Setter", für die Java-Klasse "Person".
+     * Diese Methoden ermöglichen es, auf die Eigenschaften (Variablen) eines
+     * Objekts der Klasse "Person" zuzugreifen und sie zu ändern.
+     */
     public Long getId() {
         return id;
     }
