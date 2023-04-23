@@ -1,6 +1,6 @@
 
 /**
- *  * ##################### Mein Methode #########################
+ * ##################### Mein Methode #########################
  * In diesem Code werden Personenobjekte aus einer CSV-Datei gelesen und daraufhin werden 
  * BikingWorkout- und SwimmingWorkout-Objekte für jede Person erstellt und einer 
  * Liste von Workouts hinzugefügt. Anschließend werden die generierten Statistiken 
