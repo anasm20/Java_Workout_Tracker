@@ -1,3 +1,3 @@
 # WorkoutTracker
 
-Workout Tracker is an application that provides statistics for a number of sports activities created in Java. Finally the results are output in a CSV file.
+Workout-Tracker is an application developed in Java that offers statistics for various sports activities. The final results are exported in a CSV file.
